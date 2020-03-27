@@ -3,18 +3,18 @@ const router = express.Router()
 const noteController = require('../controllers/note')
 
 // Create a new Note
-router.post('/notes', noteController.create)
+router.post('/', noteController.create)
 
 // Retrieve all Notes
-router.get('/notes', noteController.findAll)
+router.get('/', noteController.findAll)
 
 // Retrieve a single Note with noteId
-router.get('/notes/:noteId', noteController.findOne)
+router.get('/:noteId', noteController.findOne)
 
 // Update a Note with noteId
-router.put('/notes/:noteId', noteController.update)
+router.put('/:noteId', noteController.update)
 
 // Delete a Note with noteId
-router.delete('/notes/:noteId', noteController.delete)
+router.delete('/:noteId', noteController.delete)
 
 module.exports = router
