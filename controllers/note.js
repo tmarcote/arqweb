@@ -26,7 +26,13 @@ exports.create = (req, res) => {
 }
 
 exports.findAll = (req, res) => {
-  Note.find()
+  let query = {}
+
+  if (req.query.title) {
+    query.title = req.query.title
+  }
+
+  Note.find(query)
   .then(notes => {
     res.send(notes)
   }).catch(err => {
