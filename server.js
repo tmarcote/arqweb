@@ -2,7 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const dbConfig = require('./config/db')
 const mongoose = require('mongoose')
-const notesRoutes = require('./routes/notes')
+const mesasRoutes = require('./routes/mesas')
 
 const app = express()
 
@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
   res.json({"message": "Welcome"})
 })
 
-app.use('/notes', notesRoutes)
+app.use('/mesas', mesasRoutes)
 
 app.listen(3000, () => {
   console.log("Server is listening on port 3000")
