@@ -17,14 +17,14 @@ mongoose.Promise = global.Promise
 mongoose.connect(dbConfig.url, {
   useNewUrlParser: true
 }).then(() => {
-  console.log("Successfully connected to the database")
+  console.log("Conexion a la DB satisfactoria")
 }).catch(err => {
-  console.log('Could not connect to the database. Exiting now...', err)
+  console.log('No se pudo conectar a la DB...', err)
   process.exit()
 })
 
 app.get('/', (req, res) => {
-  res.json({"message": "Welcome"})
+  res.json({"message": "Bienvenido"})
 })
 
 app.use('/mesas', mesasRoutes)

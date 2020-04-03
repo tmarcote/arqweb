@@ -2,22 +2,22 @@ const Orden = require('../models/orden.js')
 const Mesa = require('../models/mesa.js')
 
 exports.create = (req, res) => {
-  // Validate request
+  // Validar request
   if(!req.body.descripcion || !req.body.precio || !req.body.mesaId) {
     return res.status(400).send({
-      message: "Missing params."
+      message: "Faltan parametros."
     })
   }
 
-  // Check if idMesa exists
+  // Verifico que exista una mesa con mesaId
   Mesa.findOne({mesaId: req.params.mesaId})
   .then(mesa => {
     if (!mesa) {
       return res.status(404).send({
-        message: "Mesa not found with id " + req.params.mesaId
+        message: "No se encontro Mesa con mesaId " + req.params.mesaId
       })
     } else {
-      // Create new Orden
+      // Crear nueva Orden
       const orden = new Orden({
         mesa: req.body.mesaId,
         descripcion: req.body.descripcion,
@@ -25,24 +25,25 @@ exports.create = (req, res) => {
         estado: 'abierta'
       })
 
-      // Save Orden in the database
+      // Guardar orden en la DB
       orden.save()
       .then(data => {
         res.send(data)
       }).catch(err => {
         res.status(500).send({
-          message: err.message || "Some error occurred while creating Orden."
+          message: err.message || "Ocurrió un error al crear una Orden."
         })
       })
     }
   }).catch(err => {
     res.status(500).send({
-      message: err.message || "Some error occurred while creating Orden."
+      message: err.message || "Ocurrió un error al crear una Orden."
     })
   })
 }
 
 exports.findAll = (req, res) => {
+  // Obtener Ordenes
   let query = {}
 
   // if (req.query.title) {
@@ -54,56 +55,57 @@ exports.findAll = (req, res) => {
     res.send(ordenes)
   }).catch(err => {
     res.status(500).send({
-      message: err.message || "Some error occurred while retrieving ordenes."
+      message: err.message || "Ocurrió un error al obtener Ordenes."
     })
   })
 }
 
 exports.findOne = (req, res) => {
+  // Obtener una Orden
   Orden.findOne({mesaId: req.params.ordenId})
   .then(orden => {
     if(!orden) {
       return res.status(404).send({
-        message: "Orden not found with id " + req.params.ordenId
+        message: "No se encontro Orden con ordenId " + req.params.ordenId
       })
     }
     res.send(orden)
   }).catch(err => {
     if(err.kind === 'ObjectId') {
       return res.status(404).send({
-        message: "Orden not found with id " + req.params.ordenId
+        message: "No se encontro Orden con ordenId " + req.params.ordenId
       })
     }
     return res.status(500).send({
-      message: "Error retrieving orden with id " + req.params.ordenId
+      message: "Error al obtener Orden con ordenId " + req.params.ordenId
     })
   })
 }
 
 exports.update = (req, res) => {
+  // Obtener y Actualizar Orden
   let updateOrden = function (req, res, update) {
-    // Find orden and update it with the request body
     Orden.findByIdAndUpdate(req.params.ordenId, update, {new: true})
     .then(orden => {
       if(!orden) {
         return res.status(404).send({
-          message: "Orden not found with id " + req.params.ordenId
+          message: "No se encontro Orden con ordenId " + req.params.ordenId
         })
       }
       res.send(orden)
     }).catch(err => {
       if(err.kind === 'ObjectId') {
         return res.status(404).send({
-          message: "Orden not found with id " + req.params.ordenId
+          message: "No se encontro Orden con ordenId " + req.params.ordenId
         })
       }
       return res.status(500).send({
-        message: "Error updating orden with id " + req.params.ordenId
+        message: "Error al actualizar Orden con ordenId " + req.params.ordenId
       })
     })
   }
 
-  //build update object
+  // construyo el objeto update solo con los valores permitidos
   let update = {}
 
   if (req.body.descripcion) {
@@ -120,19 +122,19 @@ exports.update = (req, res) => {
   }
 
   if (update.mesaId !== undefined) {
-    // Check if idMesa exists
+    // Verifico que mesaId exista
     Mesa.findOne({mesaId: req.params.mesaId})
     .then(mesa => {
       if (!mesa) {
         return res.status(404).send({
-          message: "Mesa not found with id " + req.params.mesaId
+          message: "No se encontro Mesa con mesaId " + req.params.mesaId
         })
       } else {
         updateOrden(req, res, update)
       }
     }).catch(err => {
       res.status(500).send({
-        message: err.message || "Some error occurred while updating Orden."
+        message: err.message || "Error al actualizar Orden con ordenId " + req.params.ordenId
       })
     })
   } else {
@@ -141,22 +143,23 @@ exports.update = (req, res) => {
 }
 
 exports.delete = (req, res) => {
+  // Obtener y Eliminar Orden
   Orden.findByIdAndRemove(req.params.ordenId)
   .then(orden => {
     if(!orden) {
       return res.status(404).send({
-        message: "Orden not found with id " + req.params.ordenId
+        message: "No se encontro Orden con ordenId " + req.params.ordenId
       })
     }
-    res.send({message: "Orden deleted successfully!"})
+    res.send({message: "Orden eliminada con exito!"})
   }).catch(err => {
     if(err.kind === 'ObjectId' || err.name === 'NotFound') {
       return res.status(404).send({
-        message: "Orden not found with id " + req.params.ordenId
+        message: "No se encontro Orden con ordenId " + req.params.ordenId
       })
     }
     return res.status(500).send({
-      message: "Could not delete orden with id " + req.params.ordenId
+      message: "Ocurrió un error al eliminar Orden con ordenId " + req.params.ordenId
     })
   })
 }

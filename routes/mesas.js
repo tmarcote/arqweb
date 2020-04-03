@@ -2,25 +2,25 @@ const express = require('express')
 const router = express.Router()
 const mesasController = require('../controllers/mesas')
 
-// Create a new Mesa
+// Crear una nueva Mesa
 router.post('/', mesasController.create)
 
-// Retrieve all Mesas
+// Obtener Mesas
 router.get('/', mesasController.findAll)
 
-// Retrieve a single Mesa with mesaId
+// Obtener una Mesa por mesaId
 router.get('/:mesaId', mesasController.findOne)
 
-// Update a Mesa with mesaId
+// Actualizar una Mesa por mesaId
 router.put('/:mesaId', mesasController.update)
 
-// Delete a Mesa with mesaId
+// Eliminar una Mesa por mesaId
 router.delete('/:mesaId', mesasController.delete)
 
-// Retrieve ordenes abiertas para una mesa
-router.get('/:mesaId/ordenes', mesasController.findOrdenes)
+// Obtener ordenes abiertas para una mesa
+router.get('/:mesaId/ordenes-abiertas', mesasController.findOrdenes)
 
-// Cerrar una mesa y obtener ordenes y total
-router.post('/:mesaId/ordenes', mesasController.cerrarOrdenes)
+// Cerrar una mesa y obtener ordenes
+router.post('/:mesaId/ordenes-abiertas', mesasController.cerrarOrdenes)
 
 module.exports = router
