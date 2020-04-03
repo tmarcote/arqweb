@@ -18,9 +18,9 @@ router.put('/:mesaId', mesasController.update)
 router.delete('/:mesaId', mesasController.delete)
 
 // Retrieve ordenes abiertas para una mesa
-router.get('/:mesaId/ordenes-abiertas', mesasController.findOrdenesAbiertas)
+router.get('/:mesaId/ordenes', mesasController.findOrdenes)
 
 // Cerrar una mesa y obtener ordenes y total
-router.get('/:mesaId/cerrar', mesasController.cerrar)
+router.post('/:mesaId/ordenes', mesasController.cerrarOrdenes)
 
 module.exports = router
