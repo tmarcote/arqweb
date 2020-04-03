@@ -24,7 +24,7 @@ exports.create = (req, res) => {
         res.send(data)
       }).catch(err => {
         res.status(500).send({
-          message: err.message || "Some error occurred while creating the Note."
+          message: err.message || "Some error occurred while creating Mesa."
         })
       })
     } else {
@@ -35,7 +35,7 @@ exports.create = (req, res) => {
     }
   }).catch(err => {
     res.status(500).send({
-      message: err.message || "Some error occurred while retrieving mesas."
+      message: err.message || "Some error occurred while creating Mesa."
     })
   })
 }
