@@ -8,8 +8,14 @@ exports.create = (req, res) => {
     })
   }
 
+  if(!req.body.descripcion) {
+    return res.status(400).send({
+      message: "Parametro faltante: descripcion."
+    })
+  }
+
   // Verifico si mesaId existe
-  Mesa.find({idMesa: req.body.mesaId})
+  Mesa.find({mesaId: req.body.mesaId})
   .then(mesas => {
     if (mesas.length === 0) {
       // Crear nueva Mesa
@@ -28,8 +34,8 @@ exports.create = (req, res) => {
         })
       })
     } else {
-      // si idMesa ya existe, devolver error
-      res.status(403).send({
+      // si mesaId ya existe, devolver error
+      res.status(409).send({
         message: "mesaId: " +  + " ya en uso."
       })
     }
@@ -61,6 +67,12 @@ exports.findAll = (req, res) => {
 
 exports.findOne = (req, res) => {
   // Obtener una Mesa
+  if(!req.params.mesaId) {
+    return res.status(400).send({
+      message: "Parametro faltante: mesaId."
+    })
+  }
+
   Mesa.findOne({mesaId: req.params.mesaId})
   .then(mesa => {
     if(!mesa) {
@@ -89,6 +101,12 @@ exports.update = (req, res) => {
     })
   }
 
+  if(!req.params.mesaId) {
+    return res.status(400).send({
+      message: "Parametro faltante: mesaId."
+    })
+  }
+
   // Obtener y Actualizar Mesa
   Mesa.findOneAndUpdate({mesaId: req.params.mesaId}, {
     descripcion: req.body.descripcion
@@ -114,6 +132,12 @@ exports.update = (req, res) => {
 
 exports.delete = (req, res) => {
   // Obtener y Eliminar Mesa
+  if(!req.params.mesaId) {
+    return res.status(400).send({
+      message: "Parametro faltante: mesaId."
+    })
+  }
+
   Mesa.findOneAndRemove({mesaId: req.params.mesaId})
   .then(mesa => {
     if(!mesa) {

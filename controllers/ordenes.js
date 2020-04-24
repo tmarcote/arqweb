@@ -62,7 +62,13 @@ exports.findAll = (req, res) => {
 
 exports.findOne = (req, res) => {
   // Obtener una Orden
-  Orden.findOne({mesaId: req.params.ordenId})
+  if(!req.params.ordenId) {
+    return res.status(400).send({
+      message: "Parametro faltante: ordenId."
+    })
+  }
+
+  Orden.findById(req.params.ordenId)
   .then(orden => {
     if(!orden) {
       return res.status(404).send({
@@ -84,6 +90,12 @@ exports.findOne = (req, res) => {
 
 exports.update = (req, res) => {
   // Obtener y Actualizar Orden
+  if(!req.params.ordenId) {
+    return res.status(400).send({
+      message: "Parametro faltante: ordenId."
+    })
+  }
+
   let updateOrden = function (req, res, update) {
     Orden.findByIdAndUpdate(req.params.ordenId, update, {new: true})
     .then(orden => {
@@ -115,10 +127,10 @@ exports.update = (req, res) => {
     update.mesaId = req.body.mesaId
   }
   if (req.body.precio) {
-    update.descripcion = req.body.precio
+    update.precio = req.body.precio
   }
   if (req.body.estado) {
-    update.descripcion = req.body.estado
+    update.estado = req.body.estado
   }
 
   if (update.mesaId !== undefined) {
@@ -144,6 +156,12 @@ exports.update = (req, res) => {
 
 exports.delete = (req, res) => {
   // Obtener y Eliminar Orden
+  if(!req.params.ordenId) {
+    return res.status(400).send({
+      message: "Parametro faltante: ordenId."
+    })
+  }
+
   Orden.findByIdAndRemove(req.params.ordenId)
   .then(orden => {
     if(!orden) {
