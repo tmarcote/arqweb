@@ -120,7 +120,7 @@
 
   **Required:**
 
-  `mesaId=[string]`
+  `mesaId=[string]` <br />
   `descripcion=[string]`
 
 * **Success Response:**

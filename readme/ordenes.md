@@ -124,9 +124,9 @@
 
   **Required:**
 
-  `mesaId=[string]`
-  `descripcion=[string]`
-  `precio=[string]`
+  `mesaId=[string]` <br />
+  `descripcion=[string]` <br />
+  `precio=[string]` <br />
   `estado=[string]`
 
 * **Success Response:**
@@ -187,9 +187,9 @@
 
   **Optional:**
 
-  `mesaId=[string]`
-  `descripcion=[string]`
-  `precio=[string]`
+  `mesaId=[string]` <br />
+  `descripcion=[string]` <br />
+  `precio=[string]` <br />
   `estado=[string]`
 
 * **Success Response:**
