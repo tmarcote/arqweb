@@ -20,7 +20,7 @@
 
 * **Success Response:**
 
-  * **Code:** `200 SUCCESS`
+  * **Code:** `200 SUCCESS` <br />
     **Content:**
     ```
     Array ordenes existentes
@@ -40,10 +40,9 @@
 
 * **Error Response:**
 
-  * **Code:** 500 INTERNAL SERVER ERROR <br />
+  * **Code:** `500 INTERNAL SERVER ERROR` <br />
     **Content:** `{ message : "Ocurrió un error al obtener Ordenes." }`
 
-<br />
 ---
 <br />
 
@@ -71,7 +70,7 @@
 
 * **Success Response:**
 
-  * **Code:** `200 SUCCESS`
+  * **Code:** `200 SUCCESS` <br />
     **Content:**
     ```
     Orden solicitada
@@ -89,20 +88,19 @@
 
 * **Error Response:**
 
-  * **Code:** `400 BAD REQUEST`
+  * **Code:** `400 BAD REQUEST` <br />
     **Content:** `{ message: "Parametro faltante: ordenId " }`
 
   OR
 
-  * **Code:** `404 NOT FOUND`
+  * **Code:** `404 NOT FOUND` <br />
     **Content:** `{ message: "No se encontro Orden con ordenId :ordenId " }`
 
   OR
 
-  * **Code:** `500 INTERNAL SERVER ERROR`
+  * **Code:** `500 INTERNAL SERVER ERROR` <br />
     **Content:** `{ message : "Error al obtener Orden con ordenId :ordenId" }`
 
-<br />
 ---
 <br />
 
@@ -133,7 +131,7 @@
 
 * **Success Response:**
 
-  * **Code:** `200 SUCCESS`
+  * **Code:** `200 SUCCESS` <br />
     **Content:**
     ```
     Orden creada
@@ -151,20 +149,19 @@
 
 * **Error Response:**
 
-  * **Code:** `400 BAD REQUEST`
+  * **Code:** `400 BAD REQUEST` <br />
     **Content:** `{ message: "Faltan parametros." }`
 
   OR
 
-  * **Code:** `404 NOT FOUND`
+  * **Code:** `404 NOT FOUND` <br />
     **Content:** `{ message : "No se encontro Mesa con mesaId :mesaId" }`
 
   OR
 
-  * **Code:** `500 INTERNAL SERVER ERROR`
+  * **Code:** `500 INTERNAL SERVER ERROR` <br />
     **Content:** `{ message : "Ocurrió un error al crear una Orden." }`
 
-<br />
 ---
 <br />
 
@@ -197,7 +194,7 @@
 
 * **Success Response:**
 
-  * **Code:** `200 SUCCESS`
+  * **Code:** `200 SUCCESS` <br />
     **Content:**
     ```
     Orden actualizada
@@ -215,21 +212,20 @@
 
 * **Error Response:**
 
-  * **Code:** `400 BAD REQUEST`
+  * **Code:** `400 BAD REQUEST` <br />
     **Content:** `{ message: "Parametro faltante: ordenId." }`
 
   OR
 
-  * **Code:** `404 NOT FOUND`
+  * **Code:** `404 NOT FOUND` <br />
   **Content:** `{ message: "No se encontro Mesa con mesaId :mesaId " }`
   **Content:** `{ message: "No se encontro Orden con ordenId :ordenId " }`
 
   OR
 
-  * **Code:** `500 INTERNAL SERVER ERROR`
+  * **Code:** `500 INTERNAL SERVER ERROR` <br />
     **Content:** `{ message : "Ocurrió un error al actualizar Orden con ordenId :ordenId" }`
 
-<br />
 ---
 <br />
 
@@ -257,20 +253,20 @@
 
 * **Success Response:**
 
-  * **Code:** `200 SUCCESS`
+  * **Code:** `200 SUCCESS` <br />
   **Content:** `{ message: "Orden eliminada con exito" }`
 
 * **Error Response:**
 
-  * **Code:** `400 BAD REQUEST`
+  * **Code:** `400 BAD REQUEST` <br />
     **Content:** `{ message: "Parametro faltante: ordenId." }`
 
   OR
 
-  * **Code:** `404 NOT FOUND`
+  * **Code:** `404 NOT FOUND` <br />
     **Content:** `{ message: "No se encontro Orden con ordenId :ordenId " }`
 
   OR
 
-  * **Code:** `500 INTERNAL SERVER ERROR`
+  * **Code:** `500 INTERNAL SERVER ERROR` <br />
     **Content:** `{ message : "Ocurrió un error al eliminar Orden con ordenId :ordenId" }`

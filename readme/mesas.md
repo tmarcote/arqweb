@@ -20,7 +20,7 @@
 
 * **Success Response:**
 
-  * **Code:** `200 SUCCESS`
+  * **Code:** `200 SUCCESS` <br />
     **Content:**
     ```
     Array mesas existentes
@@ -38,10 +38,9 @@
 
 * **Error Response:**
 
-  * **Code:** `500 INTERNAL SERVER ERROR`
+  * **Code:** `500 INTERNAL SERVER ERROR` <br />
     **Content:** `{ message : "Ocurrió un error al obtener Mesas." }`
 
-<br />
 ---
 <br />
 
@@ -69,7 +68,7 @@
 
 * **Success Response:**
 
-  * **Code:** `200 SUCCESS`
+  * **Code:** `200 SUCCESS` <br />
     **Content:**
     ```
     Mesa solicitada
@@ -85,20 +84,19 @@
 
 * **Error Response:**
 
-  * **Code:** `400 BAD REQUEST`
+  * **Code:** `400 BAD REQUEST` <br />
     **Content:** `{ message: "Parametro faltante: param name " }`
 
   OR
 
-  * **Code:** `404 NOT FOUND`
+  * **Code:** `404 NOT FOUND` <br />
     **Content:** `{ message: "No se encontro Mesa con mesaId :mesaId " }`
 
   OR
 
-  * **Code:** `500 INTERNAL SERVER ERROR`
+  * **Code:** `500 INTERNAL SERVER ERROR` <br />
     **Content:** `{ message : "Error al obtener Mesa con mesaId :mesaId" }`
 
-<br />
 ---
 <br />
 
@@ -127,7 +125,7 @@
 
 * **Success Response:**
 
-  * **Code:** `200 SUCCESS`
+  * **Code:** `200 SUCCESS` <br />
     **Content:**
     ```
     Mesa creada
@@ -143,20 +141,19 @@
 
 * **Error Response:**
 
-  * **Code:** `400 BAD REQUEST`
+  * **Code:** `400 BAD REQUEST` <br />
     **Content:** `{ message: "Parametro faltante: param name " }`
 
   OR
 
-  * **Code:** `409 CONFLICT`
+  * **Code:** `409 CONFLICT` <br />
     **Content:** `{ message : "MesaId ya en uso" }`
 
   OR
 
-  * **Code:** `500 INTERNAL SERVER ERROR`
+  * **Code:** `500 INTERNAL SERVER ERROR` <br />
     **Content:** `{ message : "Ocurrió un error al crear una Mesa." }`
 
-<br />
 ---
 <br />
 
@@ -186,7 +183,7 @@
 
 * **Success Response:**
 
-  * **Code:** `200 SUCCESS`
+  * **Code:** `200 SUCCESS` <br />
     **Content:**
     ```
     Mesa actualizada
@@ -202,20 +199,19 @@
 
 * **Error Response:**
 
-  * **Code:** `400 BAD REQUEST`
+  * **Code:** `400 BAD REQUEST` <br />
     **Content:** `{ message: "Parametro faltante: param name " }`
 
   OR
 
-  * **Code:** `404 NOT FOUND`
+  * **Code:** `404 NOT FOUND` <br />
     **Content:** `{ message: "No se encontro Mesa con mesaId :mesaId " }`
 
   OR
 
-  * **Code:** `500 INTERNAL SERVER ERROR`
+  * **Code:** `500 INTERNAL SERVER ERROR` <br />
     **Content:** `{ message : "Ocurrió un error al actualizar Mesa con mesaId :mesaId" }`
 
-<br />
 ---
 <br />
 
@@ -243,25 +239,24 @@
 
 * **Success Response:**
 
-  * **Code:** `200 SUCCESS`
+  * **Code:** `200 SUCCESS` <br />
   **Content:** `{ message: "Mesa eliminada con exito" }`
 
 * **Error Response:**
 
-  * **Code:** `400 BAD REQUEST`
+  * **Code:** `400 BAD REQUEST` <br />
     **Content:** `{ message: "Parametro faltante: mesaId " }`
 
   OR
 
-  * **Code:** `404 NOT FOUND`
+  * **Code:** `404 NOT FOUND` <br />
     **Content:** `{ message: "No se encontro Mesa con mesaId :mesaId " }`
 
   OR
 
-  * **Code:** `500 INTERNAL SERVER ERROR`
+  * **Code:** `500 INTERNAL SERVER ERROR` <br />
     **Content:** `{ message : "Ocurrió un error al eliminar Mesa con mesaId :mesaId" }`
 
-<br />
 ---
 <br />
 
@@ -289,7 +284,7 @@
 
 * **Success Response:**
 
-  * **Code:** `200 SUCCESS`
+  * **Code:** `200 SUCCESS` <br />
     **Content:**
     ```
     Array ordenes abiertas para mesa por ID
@@ -309,20 +304,19 @@
 
 * **Error Response:**
 
-  * **Code:** `400 BAD REQUEST`
+  * **Code:** `400 BAD REQUEST` <br />
     **Content:** `{ message: "Parametro faltante: mesaId " }`
 
   OR
 
-  * **Code:** `404 NOT FOUND`
+  * **Code:** `404 NOT FOUND` <br />
     **Content:** `{ message: "No se encontro Mesa con mesaId :mesaId " }`
 
   OR
 
-  * **Code:** `500 INTERNAL SERVER ERROR`
+  * **Code:** `500 INTERNAL SERVER ERROR` <br />
     **Content:** `{ message : "Ocurrió un error al obtener Ordenes abiertas con mesa :mesaId." }`
 
-<br />
 ---
 <br />
 
@@ -351,7 +345,7 @@
 
 * **Success Response:**
 
-  * **Code:** `200 SUCCESS`
+  * **Code:** `200 SUCCESS` <br />
     **Content:**
     ```
     Array ordenes actualizadas a cerrada para mesa por ID
@@ -371,15 +365,15 @@
 
 * **Error Response:**
 
-  * **Code:** `400 BAD REQUEST`
+  * **Code:** `400 BAD REQUEST` <br />
     **Content:** `{ message: "Parametro faltante: mesaId " }`
 
   OR
 
-  * **Code:** `404 NOT FOUND`
+  * **Code:** `404 NOT FOUND` <br />
     **Content:** `{ message: "No se encontro Mesa con mesaId :mesaId " }`
 
   OR
 
-  * **Code:** `500 INTERNAL SERVER ERROR`
+  * **Code:** `500 INTERNAL SERVER ERROR` <br />
     **Content:** `{ message : "Ocurrió un error al cerrar mesa con mesa :mesaId." }`
