@@ -10,7 +10,7 @@
 
   `GET`
 
-*  **URL Params**
+* **URL Params**
 
   None
 
@@ -41,7 +41,9 @@
   * **Code:** 500 INTERNAL SERVER ERROR <br />
     **Content:** `{ message : "Ocurrió un error al obtener Mesas." }`
 
+
 ---
+
 
 **Obtener una mesa**
 ----
@@ -55,9 +57,9 @@
 
   `GET`
 
-*  **URL Params**
+* **URL Params**
 
-   **Required:**
+  **Required:**
 
   `mesaId=[string]`
 
@@ -96,7 +98,9 @@
   * **Code:** 500 INTERNAL SERVER ERROR <br />
     **Content:** `{ message : "Error al obtener Mesa con mesaId :mesaId" }`
 
+
 ---
+
 
 **Crear una mesa**
 ----
@@ -110,7 +114,7 @@
 
   `POST`
 
-*  **URL Params**
+* **URL Params**
 
   None
 
@@ -152,7 +156,9 @@
   * **Code:** 500 INTERNAL SERVER ERROR <br />
     **Content:** `{ message : "Ocurrió un error al crear una Mesa." }`
 
+
 ---
+
 
 **Actualizar una mesa**
 ----
@@ -166,11 +172,11 @@
 
   `PUT`
 
-*  **URL Params**
+* **URL Params**
 
-   **Required:**
+  **Required:**
 
-   `mesaId=[string]`
+  `mesaId=[string]`
 
 * **Data Params**
 
@@ -209,7 +215,9 @@
   * **Code:** 500 INTERNAL SERVER ERROR <br />
     **Content:** `{ message : "Ocurrió un error al actualizar Mesa con mesaId :mesaId" }`
 
+
 ---
+
 
 **Eliminar una mesa**
 ----
@@ -223,11 +231,11 @@
 
   `DELETE`
 
-*  **URL Params**
+* **URL Params**
 
-   **Required:**
+  **Required:**
 
-   `mesaId=[string]`
+  `mesaId=[string]`
 
 * **Data Params**
 
@@ -253,7 +261,9 @@
   * **Code:** 500 INTERNAL SERVER ERROR <br />
     **Content:** `{ message : "Ocurrió un error al eliminar Mesa con mesaId :mesaId" }`
 
+
 ---
+
 
 **Obtener ordenes abiertas**
 ----
@@ -267,11 +277,11 @@
 
   `GET`
 
-*  **URL Params**
+* **URL Params**
 
-   **Required:**
+  **Required:**
 
-   `mesaId=[string]`
+  `mesaId=[string]`
 
 * **Data Params**
 
@@ -312,7 +322,9 @@
   * **Code:** 500 INTERNAL SERVER ERROR <br />
     **Content:** `{ message : "Ocurrió un error al obtener Ordenes abiertas con mesa :mesaId." }`
 
+
 ---
+
 
 **Cerrar mesa**
 ----
@@ -327,11 +339,11 @@
 
   `PUT`
 
-*  **URL Params**
+* **URL Params**
 
-   **Required:**
+  **Required:**
 
-   `mesaId=[string]`
+  `mesaId=[string]`
 
 * **Data Params**
 

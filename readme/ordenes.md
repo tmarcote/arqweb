@@ -10,7 +10,7 @@
 
   `GET`
 
-*  **URL Params**
+* **URL Params**
 
   None
 
@@ -43,7 +43,9 @@
   * **Code:** 500 INTERNAL SERVER ERROR <br />
     **Content:** `{ message : "Ocurrió un error al obtener Ordenes." }`
 
+
 ---
+
 
 **Obtener una orden**
 ----
@@ -57,9 +59,9 @@
 
   `GET`
 
-*  **URL Params**
+* **URL Params**
 
-   **Required:**
+  **Required:**
 
   `ordenId=[string]`
 
@@ -100,7 +102,9 @@
   * **Code:** 500 INTERNAL SERVER ERROR <br />
     **Content:** `{ message : "Error al obtener Orden con ordenId :ordenId" }`
 
+
 ---
+
 
 **Crear una orden**
 ----
@@ -114,7 +118,7 @@
 
   `POST`
 
-*  **URL Params**
+* **URL Params**
 
   None
 
@@ -160,7 +164,9 @@
   * **Code:** 500 INTERNAL SERVER ERROR <br />
     **Content:** `{ message : "Ocurrió un error al crear una Orden." }`
 
+
 ---
+
 
 **Actualizar una orden**
 ----
@@ -174,11 +180,11 @@
 
   `PUT`
 
-*  **URL Params**
+* **URL Params**
 
-   **Required:**
+  **Required:**
 
-   `ordenId=[string]`
+  `ordenId=[string]`
 
 * **Data Params**
 
@@ -223,7 +229,9 @@
   * **Code:** 500 INTERNAL SERVER ERROR <br />
     **Content:** `{ message : "Ocurrió un error al actualizar Orden con ordenId :ordenId" }`
 
+
 ---
+
 
 **Eliminar una orden**
 ----
@@ -237,11 +245,11 @@
 
   `DELETE`
 
-*  **URL Params**
+* **URL Params**
 
-   **Required:**
+  **Required:**
 
-   `ordenId=[string]`
+  `ordenId=[string]`
 
 * **Data Params**
 
