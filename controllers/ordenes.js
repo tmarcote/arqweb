@@ -134,7 +134,7 @@ exports.update = (req, res) => {
   }
 
   if (update.mesaId !== undefined) {
-    // Verifico que mesaId exista
+    // Si incluye el parametro mesaId, Verifico que mesaId exista
     Mesa.findOne({mesaId: req.params.mesaId})
     .then(mesa => {
       if (!mesa) {

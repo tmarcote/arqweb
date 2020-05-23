@@ -1,4 +1,5 @@
 const Mesa = require('../models/mesa.js')
+const Orden = require('../models/orden.js')
 
 exports.create = (req, res) => {
   // Validar request
@@ -159,9 +160,93 @@ exports.delete = (req, res) => {
 }
 
 exports.findOrdenes = (req, res) => {
+  // Obtener Ordenes abiertas para una determinada mesa
+  if(!req.params.mesaId) {
+    return res.status(400).send({
+      message: "Parametro faltante: mesaId."
+    })
+  }
 
+  Mesa.findOne({mesaId: req.params.mesaId})
+  .then(mesa => {
+    if(!mesa) {
+      return res.status(404).send({
+        message: "No se encontro Mesa con mesaId " + req.params.mesaId
+      })
+    }
+
+    // si la mesa existe, busco las Ordenes
+    let query = {
+      mesaId: req.params.mesaId,
+      estado: 'abierta'
+    }
+    Orden.find(query)
+    .then(ordenes => {
+      // devuelvo las ordenes abiertas
+      res.send(ordenes)
+    }).catch(err => {
+      res.status(500).send({
+        message: err.message || "Ocurrió un error al obtener Ordenes abiertas con mesaId " + req.params.mesaId
+      })
+    })
+  }).catch(err => {
+    if(err.kind === 'ObjectId') {
+      return res.status(404).send({
+        message: "No se encontro Mesa con mesaId " + req.params.mesaId
+      })
+    }
+    return res.status(500).send({
+      message: "Ocurrió un error al obtener Ordenes abiertas con mesaId " + req.params.mesaId
+    })
+  })
 }
 
 exports.cerrarOrdenes = (req, res) => {
+  // Cerrar ordenes para una determinada mesa, actualizar estados y devolver monto total
+  if(!req.params.mesaId) {
+    return res.status(400).send({
+      message: "Parametro faltante: mesaId."
+    })
+  }
 
+  Mesa.findOne({mesaId: req.params.mesaId})
+  .then(mesa => {
+    if(!mesa) {
+      return res.status(404).send({
+        message: "No se encontro Mesa con mesaId " + req.params.mesaId
+      })
+    }
+
+    // si la mesa existe, actualizo estados de las ordenes a cerrada
+    let query = {
+      mesaId: req.params.mesaId,
+      estado: 'abierta'
+    }
+
+    Orden.updateMany(query, { estado: 'cerrada' })
+    .then(ordenes => {
+      let montoTotal = ordenes
+      .map(orden => { return parseFloat(orden.monto) })
+      .reduce((total, monto) => {
+        return total + monto
+      })
+      montoTotal = montoTotal.toFixed(2)
+
+      // devuelvo las ordenes actualizadas y el total
+      res.send({ odenes: ordenes, total: montoTotal })
+    }).catch(err => {
+      res.status(500).send({
+        message: err.message || "Ocurrió un error al cerrar mesa con mesaId " + req.params.mesaId
+      })
+    })
+  }).catch(err => {
+    if(err.kind === 'ObjectId') {
+      return res.status(404).send({
+        message: "No se encontro Mesa con mesaId " + req.params.mesaId
+      })
+    }
+    return res.status(500).send({
+      message: "Ocurrió un error al cerrar mesa con mesaId " + req.params.mesaId
+    })
+  })
 }
