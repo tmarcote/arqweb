@@ -175,7 +175,7 @@
 
 * **Method:**
 
-  `PUT`
+  `PATCH`
 
 * **URL Params**
 

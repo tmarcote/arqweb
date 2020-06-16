@@ -223,20 +223,30 @@ exports.cerrarOrdenes = (req, res) => {
       estado: 'abierta'
     }
 
-    Orden.updateMany(query, { estado: 'cerrada' })
+    // obtengo las ordenes para calcular el total
+    Orden.find(query)
     .then(ordenes => {
       let montoTotal = ordenes
-      .map(orden => { return parseFloat(orden.monto) })
+      .map(orden => { return parseFloat(orden.precio) })
       .reduce((total, monto) => {
         return total + monto
       })
       montoTotal = montoTotal.toFixed(2)
 
-      // devuelvo las ordenes actualizadas y el total
-      res.send({ odenes: ordenes, total: montoTotal })
+      // actualizo las ordenes a cerradas
+      Orden.updateMany(query, { estado: 'cerrada' })
+      .then(() => {
+        // devuelvo las ordenes actualizadas y el total
+        res.send({ ordenes: ordenes, total: montoTotal })
+      }).catch(err => {
+        res.status(500).send({
+          message: err.message || "Ocurrió un error al cerrar mesa con mesaId " + req.params.mesaId
+        })
+      })
+
     }).catch(err => {
       res.status(500).send({
-        message: err.message || "Ocurrió un error al cerrar mesa con mesaId " + req.params.mesaId
+        message: err.message || "Ocurrió un error al obtener Ordenes abiertas con mesaId " + req.params.mesaId
       })
     })
   }).catch(err => {

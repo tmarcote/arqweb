@@ -348,19 +348,23 @@
   * **Code:** `200 SUCCESS` <br />
     **Content:**
     ```
-    Array ordenes actualizadas a cerrada para mesa por ID
-    [
-        {
-            "_id": "5e83aa951b68007089e2b202",
-            mesaId: "1",
-            descripcion: "milanesa napolitana",
-            precio: "300,00",
-            estado: 'cerrada'
-            "createdAt": "2020-03-31T20:39:49.619Z",
-            "updatedAt": "2020-03-31T20:39:49.619Z",
-            "__v": 0
-        }
-    ]
+    ordenes: Array ordenes actualizadas a cerrada para mesa por ID
+    total: Monto total de la suma de las ordenes
+    {
+        ordenes: [
+            {
+              "_id": "5e83aa951b68007089e2b202",
+              mesaId: "1",
+              descripcion: "milanesa napolitana",
+              precio: "300,00",
+              estado: 'cerrada'
+              "createdAt": "2020-03-31T20:39:49.619Z",
+              "updatedAt": "2020-03-31T20:39:49.619Z",
+              "__v": 0
+            }
+        ],
+        total: "46:00"
+    }
     ```
 
 * **Error Response:**

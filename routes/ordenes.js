@@ -12,7 +12,7 @@ router.get('/', ordenesController.findAll)
 router.get('/:ordenId', ordenesController.findOne)
 
 // Actualizar una Orden por ordenId
-router.put('/:ordenId', ordenesController.update)
+router.patch('/:ordenId', ordenesController.update)
 
 // Eliminar una Orden por ordenId
 router.delete('/:ordenId', ordenesController.delete)

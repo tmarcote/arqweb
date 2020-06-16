@@ -10,16 +10,16 @@ exports.create = (req, res) => {
   }
 
   // Verifico que exista una mesa con mesaId
-  Mesa.findOne({mesaId: req.params.mesaId})
+  Mesa.findOne({mesaId: req.body.mesaId})
   .then(mesa => {
     if (!mesa) {
       return res.status(404).send({
-        message: "No se encontro Mesa con mesaId " + req.params.mesaId
+        message: "No se encontro Mesa con mesaId " + req.body.mesaId
       })
     } else {
       // Crear nueva Orden
       const orden = new Orden({
-        mesa: req.body.mesaId,
+        mesaId: req.body.mesaId,
         descripcion: req.body.descripcion,
         precio: req.body.precio,
         estado: 'abierta'
