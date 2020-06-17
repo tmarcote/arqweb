@@ -1,10 +1,17 @@
 # arqweb
 tp arquitectura web
 
+## Instrucciones
+Iniciar con "npm run start"
+Escucha en el puerto 3000
+
 ## API mesas y ordenes para restaurante
 
 ### Endpoint de Mesas:
-[/mesas/](readme/mesas.md)
+[/api/mesas/](readme/mesas.md)
 
 ### Endpoint de Ordenes:
-[/ordenes/](readme/ordenes.md)
+[/api/ordenes/](readme/ordenes.md)
+
+### Pantalla CRUD Mesas:
+/mesas

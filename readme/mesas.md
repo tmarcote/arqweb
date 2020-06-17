@@ -4,7 +4,7 @@
 
 * **URL**
 
-  /mesas/
+  /api/mesas/
 
 * **Method:**
 
@@ -50,7 +50,7 @@
 
 * **URL**
 
-  /mesas/:mesaId
+  /api/mesas/:mesaId
 
 * **Method:**
 
@@ -106,7 +106,7 @@
 
 * **URL**
 
-  /mesas/
+  /api/mesas/
 
 * **Method:**
 
@@ -163,7 +163,7 @@
 
 * **URL**
 
-  /mesas/:mesaId
+  /api/mesas/:mesaId
 
 * **Method:**
 
@@ -221,7 +221,7 @@
 
 * **URL**
 
-  /mesas/:mesaId
+  /api/mesas/:mesaId
 
 * **Method:**
 
@@ -266,7 +266,7 @@
 
 * **URL**
 
-  /mesas/:mesaId/ordenes-abiertas
+  /api/mesas/:mesaId/ordenes-abiertas
 
 * **Method:**
 
@@ -327,7 +327,7 @@
 
 * **URL**
 
-  /mesas/:mesaId/ordenes-abiertas
+  /api/mesas/:mesaId/ordenes-abiertas
 
 * **Method:**
 

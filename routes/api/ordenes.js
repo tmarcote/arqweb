@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const ordenesController = require('../controllers/ordenes')
+const ordenesController = require('../../controllers/ordenes')
 
 // Crear una nueva Orden
 router.post('/', ordenesController.create)

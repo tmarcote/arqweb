@@ -4,7 +4,7 @@
 
 * **URL**
 
-  /ordenes/
+  /api/ordenes/
 
 * **Method:**
 
@@ -52,7 +52,7 @@
 
 * **URL**
 
-  /ordenes/:ordenId
+  /api/ordenes/:ordenId
 
 * **Method:**
 
@@ -110,7 +110,7 @@
 
 * **URL**
 
-  /ordenes/
+  /api/ordenes/
 
 * **Method:**
 
@@ -171,7 +171,7 @@
 
 * **URL**
 
-  /ordenes/:ordenId
+  /api/ordenes/:ordenId
 
 * **Method:**
 
@@ -235,7 +235,7 @@
 
 * **URL**
 
-  /ordenes/:ordenId
+  /api/ordenes/:ordenId
 
 * **Method:**
 

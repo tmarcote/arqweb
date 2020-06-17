@@ -37,7 +37,7 @@ exports.create = (req, res) => {
     } else {
       // si mesaId ya existe, devolver error
       res.status(409).send({
-        message: "mesaId: " +  + " ya en uso."
+        message: "mesaId: " + req.body.mesaId + " ya en uso."
       })
     }
   }).catch(err => {
