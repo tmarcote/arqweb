@@ -226,12 +226,17 @@ exports.cerrarOrdenes = (req, res) => {
     // obtengo las ordenes para calcular el total
     Orden.find(query)
     .then(ordenes => {
-      let montoTotal = ordenes
-      .map(orden => { return parseFloat(orden.precio) })
-      .reduce((total, monto) => {
-        return total + monto
-      })
-      montoTotal = montoTotal.toFixed(2)
+      let montoTotal
+      if (ordenes.length) {
+        montoTotal = ordenes
+        .map(orden => { return parseFloat(orden.precio) })
+        .reduce((total, monto) => {
+          return total + monto
+        })
+        montoTotal = montoTotal.toFixed(2)
+      } else {
+        montoTotal="0.00"
+      }
 
       // actualizo las ordenes a cerradas
       Orden.updateMany(query, { estado: 'cerrada' })
